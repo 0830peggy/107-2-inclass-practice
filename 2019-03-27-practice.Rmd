@@ -1,0 +1,182 @@
+---
+title: '2019-03-27'
+author: "林茂廷"
+date: "3/27/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(lubridate)
+```
+```{r}
+dtObjectVector<-ymd_hms(
+  c("1970-01-01 00:02:53",
+    "1980-02-11 11:25:22")
+)
+```
+
+```{r}
+class(dtObject)
+dtObject
+```
+
+```{r}
+Sys.timezone()
+```
+
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+twDateTime
+```
+
+```{r}
+LisbonDateTime <- with_tz(twDateTime,tzone="Europe/Lisbon")
+LisbonDateTime
+```
+```{r}
+typeof(twDateTime)
+as.double(twDateTime)
+as.double(LisbonDateTime)
+```
+```{r}
+twDateTime <- mdy("03-18-2019", tz="Asia/Taipei")
+twDateTime
+```
+
+```{r}
+test1DateTime <- ymd("2018-09-11", tz="Asia/Taipei")
+test2DateTime <- mdy("March 3, 2019", tz="Asia/Taipei")
+typeof(test1DateTime)
+as.double(test1DateTime)
+as.double(test2DateTime)
+```
+
+```{r}
+as.integer(ymd("1970-01-01"))
+as.integer(ymd("1970-01-02"))
+as.integer(ymd("2019-03-11"))
+```
+
+```{r}
+a <- c(1, 5, -3)
+b <- c(0.5, 12, 2)
+aL <- c(1L, 5L, -3L)
+bL <- c(-2L, -4L, 8L)
+```
+
+```{r}
+a-bL
+class(a-bL)
+
+aL-bL
+class(aL-bL)
+
+class(aL*bL)
+class(aL/bL)
+```
+
+```{r}
+a
+a+4
+```
+
+```{r}
+a^b
+a**b
+```
+
+```{r}
+twDateTime
+twDateTime+1
+```
+
+```{r}
+test3DateTime <- ymd("2019-08-11", tz="Asia/Taipei")
+test4DateTime <- ymd("2000-02-01", tz="Asia/Taipei")
+test3DateTime-test4DateTime
+typeof(test3DateTime-test4DateTime)
+as.double(test3DateTime-test4DateTime)
+```
+
+```{r}
+startingDate <- ymd("2000-02-17")
+```
+
+```{r}
+startingDate
+startingDate + years(1) #明年此時
+startingDate + dyears(1) #經過整整一年
+```
+
+```{r}
+Birthday1 <- ymd("2000-08-30")
+Birthday2 <- ymd("2019-03-27")
+Birthday2-Birthday1
+```
+
+```{r}
+x <- 5
+y <- 7
+```
+
+```{r}
+x2 <- c(1,5,10)
+y2 <- c(-1,5,20)
+```
+
+```{r}
+x >= y
+x == y
+x < y
+```
+
+```{r}
+x2
+y2
+x2 < y2
+```
+
+```{r}
+x3 <- c("小明","小花")
+y3 <- c("小明","小華")
+x3 == y3
+```
+
+```{r}
+x4 <- c(1,5,8)
+y4 <- c(5,8)
+
+x4
+y4
+x4 %in% y4 #屬於(x4是否屬於y4集合)
+```
+
+```{r}
+x5 <- c("台北市","新北市","高雄市")
+y5 <- c("台北市","新北市")
+
+x5 %in% y5
+```
+
+```{r}
+x2 <- c(1,NA,10)
+y2 <- c(-1,NA,20)
+x2 == y2
+```
+
+```{r}
+is.na(x2)
+```
+
+```{r}
+sum(x2)
+sum(x2,na.rm=F)
+sum(x2,na.rm=T)
+```
+
+
+
