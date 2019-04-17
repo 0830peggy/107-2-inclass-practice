@@ -71,5 +71,41 @@ x[[1]]
 
 ```{r}
 成績單[[1]]
+成績單[["個經"]]
+```
+
+```{r}
+studentRecord[["姓名"]]
+y <- studentRecord[[4]]
+y[[3]]
+```
+
+另一種取法
+```{r}
+studentRecord[[2]]
+studentRecord[[4]][[3]]
+```
+
+[.]取一群元素
+```{r}
+plasticContainer
+
+plasticContainer[c("greenBox","redBox")] 
+plasticContainer[c(1,2)]
+```
+
+```{r}
+plasticContainer
+
+extract1 <- plasticContainer[c("greenBox")] #保有母層結構
+extract1
+extract2 <- plasticContainer[[c("greenBox")]]
+extract2
+```
+
+兩者取出paper的差異
+```{r}
+extract1[[1]][[1]]
+extract2[[1]]
 ```
 
