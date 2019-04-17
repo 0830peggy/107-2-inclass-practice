@@ -43,7 +43,7 @@ plasticContainer <- list(
 )
 ```
 
-[[.]]
+[[.]]取一個元素
 ```{r}
 plasticContainer
 
