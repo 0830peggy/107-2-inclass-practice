@@ -141,7 +141,15 @@ commitCheck <- content(GET(commitCheckStatement))
 commitCheckStatement
 ```
 
+```{r}
+commitCheck[[4]][["commit"]][["committer"]][["date"]] -> commitDate
+commitDate
+```
 
+```{r}
+ymd_hms(commitDate) -> commitDate
+with_tz(commitDate,tzone = "Asia/Taipei")
+```
 
 
 
@@ -159,7 +167,6 @@ logiCorrect
 ```
 
 ```{r}
-favoriteTwo[logiCorrect] -> validFavoriteTwo
-validFavoriteTwo
+favoriteTwo[logiCorrect]
 ```
 
