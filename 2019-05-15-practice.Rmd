@@ -16,6 +16,11 @@ names(Vector1)
 ```
 
 ```{r}
+Vector1[["名稱4"]]
+```
+
+
+```{r}
 Mat1
 names(Mat1) 
 ```
@@ -25,13 +30,49 @@ names(Mat1) <- letters[1:6]
 names(Mat1)
 ```
 
+
 ```{r}
-StuDF
-colnames(StuDF) <- c("StudentID","Name","Grade")
-rownames(matObj1)
-StuDF
+StuDF2 <- data.frame(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50),
+  stringsAsFactors = FALSE
+  )
+StuDF2 
 ```
 
+```{r}
+colnames(StuDF2)
+names(StuDF2)
+```
+
+
+```{r}
+StuDF2
+colnames(StuDF2) <- c("StudentID","Name","Grade")
+StuDF2
+```
+
+#只改col2的名稱
+```{r}
+colnames(StuDF2)[[2]] <- c("姓名")
+colnames(StuDF2)
+StuDF2
+```
+
+```{r}
+colnames(StuDF2)[c(2,3)] <- c("name","grade")
+colnames(StuDF2)
+StuDF2
+```
+
+```{r}
+library(stringr)
+rownames(StuDF2)
+rownames(StuDF2) <- str_c("第",1:5,"筆")
+rownames(StuDF2)
+StuDF2
+```
 
 
 ```{r}
