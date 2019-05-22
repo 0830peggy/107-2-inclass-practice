@@ -90,8 +90,8 @@ yyyymmdd
 library(stringr); library(lubridate)
 date_convert_twYM <- function(x){
   yyyy<-as.integer(str_extract(x,"(?<=(民國))[:digit:]+"))+1911 #+代表數字們
-mm<-str_extract(x,"[:digit:]+(?=月)")
-yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+  mm<-str_extract(x,"[:digit:]+(?=月)")
+  yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
   return(yyyymmdd)
 }
 date_convert_twYM(twDates)
@@ -116,10 +116,11 @@ utility_cobb_douglass2(1,2,0.5,0.8) # 自定參數值
 library(stringr); library(lubridate)
 date_convert_twYM <- function(x,dd="01"){
   yyyy<-as.integer(str_extract(x,"(?<=(民國))[:digit:]+"))+1911 #+代表數字們
-mm<-str_extract(x,"[:digit:]+(?=月)")
-yyyymmdd <- ymd(str_c(yyyy,mm,dd,sep="-"))
+  mm<-str_extract(x,"[:digit:]+(?=月)")
+  yyyymmdd <- ymd(str_c(yyyy,mm,dd,sep="-"))
   return(yyyymmdd)
 }
+date_convert_twYM(twDates)
 date_convert_twYM(twDates,"03")
 ```
 
