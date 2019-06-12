@@ -142,19 +142,57 @@ saveGPA5
 ```
 
 範例3 任務
+0. saving container
 ```{r}
-saveEveryThing <- vector("list", length(commitHistory))
-saveSameLogi <- vector("logical", length(commitHistory))
+saveEveryThing <- vector("list",length(commitHistory))
+saveSameLogi <- vector("logical",length(commitHistory))
 ```
 
-
+1. sequence source
 ```{r}
+commitHistory
+```
+
+2. body
+```{r}
+i <- 1
+
+author_i <- commitHistory[[i]]$commit$author$name
+committer_i <- commitHistory[[i]]$commit$committer$name
+commitDate_i <- commitHistory[[i]]$commit$committer$date
+
+(author_i==committer_i) -> saveSameLogi[[i]]
+list(
+  author=author_i,
+  committer=committer_i,
+  commitDate=commitDate_i
+) -> saveEveryThing[[i]]
+```
+檢查一下
+```{r}
+saveEveryThing
+saveSameLogi
+```
+
+3. for loop
+```{r}
+saveEveryThing <- vector("list",length(commitHistory))
+saveSameLogi <- vector("logical",length(commitHistory))
 for(i in seq_along(commitHistory)){
-  sameone <- commitHistory[[i]]$commit$author$name == commitHistory[[i]]$commit$committer$name
-  sameonedate <- commitHistory$commit$committer$date[sameone]
-}
-sameonedate
-SaveEveryThing <- vector("list", length(sameonedate))
-SaveEveryThing
-```
+  author_i <- commitHistory[[i]]$commit$author$name
+  committer_i <- commitHistory[[i]]$commit$committer$name
+  commitDate_i <- commitHistory[[i]]$commit$committer$date
 
+  (author_i == committer_i) -> saveSameLogi[[i]]
+
+  list(
+    author=author_i,
+    committer=committer_i,
+    commitDate=commitDate_i
+  ) -> saveEveryThing[[i]]  
+}
+saveEveryThing
+print(saveSameLogi)
+saveEveryThing[saveSameLogi] -> saveValidCommitDate
+saveValidCommitDate
+```
